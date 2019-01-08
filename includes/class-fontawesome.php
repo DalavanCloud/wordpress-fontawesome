@@ -521,6 +521,8 @@ if ( ! class_exists( 'FontAwesome' ) ) :
 		private function initialize_admin() {
 			$v3deprecation_warning_data = $this->get_v3deprecation_warning_data();
 
+			require_once trailingslashit( FONTAWESOME_DIR_PATH ) . 'blocks/font-awesome.php';
+
 			if ( $v3deprecation_warning_data && ! ( isset( $v3deprecation_warning_data['snooze'] ) && $v3deprecation_warning_data['snooze'] ) ) {
 				add_action(
 					'admin_notices',
