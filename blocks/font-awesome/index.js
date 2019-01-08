@@ -59,11 +59,17 @@
 		},
 
     attributes: {
-		  class: {
+		  prefix: {
+        type: 'string',
+        source: 'attribute',
+        selector: 'i',
+        attribute: 'prefix'
+      },
+		  icon: {
 		    type: 'string',
         source: 'attribute',
-        selector: 'option',
-        attribute: 'value'
+        selector: 'i',
+        attribute: 'icon'
       }
     },
 
@@ -75,37 +81,44 @@
 		 * @param {Object} [props] Properties passed from the editor.
 		 * @return {Element}       Element to render.
 		 */
-		edit: ( { className, setAttributes } ) => {
+		edit: ( { className, setAttributes, isSelected, attributes } ) => {
+		  const defaultPrefix = 'fas'
 
-      const handleSelect = (e, iconClass) => {
+      const handleSelect = icon => {
         setAttributes({
-          class: iconClass
+          icon,
+          prefix: defaultPrefix
         })
       }
 
       const icons = [
-        'fa-coffee',
-        'fa-star',
-        'fa-angry',
-        'fa-bath',
-        'fa-bell',
-        'fa-bowling-ball',
-        'fa-broom',
-        'fa-brain',
-        'fa-chair',
-        'fa-clock',
-        'fa-exclamation',
-        'fa-eye-dropper'
+        'coffee',
+        'star',
+        'angry',
+        'bath',
+        'bell',
+        'bowling-ball',
+        'broom',
+        'brain',
+        'chair',
+        'clock',
+        'exclamation',
+        'eye-dropper'
       ]
 
-      return <div className={className}>
-        <ul className={'icons'}>
-          {
-            icons.map((i, index) => <li onClick={e => handleSelect(e, i)} key={index}><i className={`fas ${i}`}></i>
-            </li>)
-          }
-        </ul>
-      </div>
+      return isSelected
+          ? <div className={className}>
+              <ul className={'icons'}>
+                {
+                  icons.map((icon, index) =>
+                    <li onClick={() => handleSelect(icon)} key={index}>
+                      <i className={`${ defaultPrefix } fa-${ icon }`}></i>
+                    </li>
+                  )
+                }
+              </ul>
+            </div>
+          : <i className={`${ attributes.prefix } fa-${ attributes.icon }`}></i>
     },
 
 		/**
@@ -115,8 +128,8 @@
 		 *
 		 * @return {Element}       Element to render.
 		 */
-		save: (props) => {
-      return <i className={`fas ${props.attributes.class}`}></i>
+		save: ({ attributes: { icon, prefix } }) => {
+      return <i className={`${ prefix } fa-${ icon }`} icon={ icon } prefix={ prefix }></i>
 		}
 	})
 } )(
