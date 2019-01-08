@@ -58,6 +58,15 @@
 			html: false,
 		},
 
+    attributes: {
+		  class: {
+		    type: 'string',
+        source: 'attribute',
+        selector: 'option',
+        attribute: 'value'
+      }
+    },
+
 		/**
 		 * The edit function describes the structure of your block in the context of the editor.
 		 * This represents what the editor will render when the block is used.
@@ -67,10 +76,23 @@
 		 * @return {Element}       Element to render.
 		 */
 		edit: function( props ) {
+
 			return el(
 				'select',
-				{ className: props.className },
+				{
+				  className: props.className,
+          onChange: function(e){
+            props.setAttributes({
+              class: e.target.value
+            })
+          }
+        },
         [
+          el(
+            'option',
+            { value: '', selected: true },
+            __( 'Select Icon' )
+          ),
           el(
             'option',
             { value: 'fas fa-coffee' },
@@ -78,7 +100,7 @@
           ),
           el(
             'option',
-            { value: 'star' },
+            { value: 'fas fa-star' },
             __( 'star' )
           )
         ]
@@ -95,7 +117,7 @@
 		save: function(props) {
 			return el(
 				'i',
-				{className: 'fas fa-coffee'},
+				{className: props.attributes.class },
         null
 			);
 		}
