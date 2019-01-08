@@ -19,7 +19,7 @@ function font_awesome_block_init() {
 	}
 	$dir = dirname( __FILE__ );
 
-	$index_js = 'font-awesome/index.js';
+	$index_js = 'font-awesome/block.build.js';
 	wp_register_script(
 		'font-awesome-block-editor',
 		plugins_url( $index_js, __FILE__ ),
