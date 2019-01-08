@@ -4,5 +4,9 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-font-awesome-font-awesome {
+.wp-block-font-awesome-font-awesome ul {
+    list-style-type: none;
+    display: flex;
 }
+
+

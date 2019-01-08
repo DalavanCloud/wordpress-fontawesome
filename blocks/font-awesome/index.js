@@ -75,10 +75,16 @@
 		 * @param {Object} [props] Properties passed from the editor.
 		 * @return {Element}       Element to render.
 		 */
-		edit: function( props ) {
+		edit: function( { className, setAttributes } ) {
 
-		  var icons = [
-		    'fa-coffee',
+      const handleSelect = (e, iconClass) => {
+        setAttributes({
+          class: iconClass
+        })
+      }
+
+      const icons = [
+        'fa-coffee',
         'fa-star',
         'fa-angry',
         'fa-bath',
@@ -92,35 +98,15 @@
         'fa-eye-dropper'
       ]
 
-			return el(
-				'select',
-				{
-				  className: props.className,
-          onChange: function(e){
-            props.setAttributes({
-              class: e.target.value
-            })
+      return <div className={className}>
+        <ul className={'icons'}>
+          {
+            icons.map((i, index) => <li onClick={e => handleSelect(e, i)} key={index}><i className={`fas ${i}`}></i>
+            </li>)
           }
-        },
-        [
-          el(
-            'option',
-            { value: '', selected: true },
-            __( 'Select Icon' )
-          ),
-          el(
-            'option',
-            { value: 'fas fa-coffee' },
-            __( 'coffee' )
-          ),
-          el(
-            'option',
-            { value: 'fas fa-star' },
-            __( 'star' )
-          )
-        ]
-			);
-		},
+        </ul>
+      </div>
+    },
 
 		/**
 		 * The save function defines the way in which the different attributes should be combined
@@ -130,13 +116,9 @@
 		 * @return {Element}       Element to render.
 		 */
 		save: function(props) {
-			return el(
-				'i',
-				{className: props.attributes.class },
-        null
-			);
+      return <i className={`fas ${props.attributes.class}`}></i>
 		}
-	} );
+	});
 } )(
 	window.wp
 );

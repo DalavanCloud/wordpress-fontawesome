@@ -4,5 +4,12 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-font-awesome-font-awesome {
+.wp-block-font-awesome-font-awesome ul.icons {
+    list-style-type: none;
 }
+
+.wp-block-font-awesome-font-awesome ul.icons li {
+    padding: 0.25em;
+    color: rgb(73, 80, 87);
+}
+
