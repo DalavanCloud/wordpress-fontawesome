@@ -118,7 +118,7 @@
                 }
               </ul>
             </div>
-          : <i className={`${ attributes.prefix } fa-${ attributes.icon }`}></i>
+        : <span><i className={`${ attributes.prefix } fa-${ attributes.icon }`}></i></span>
     },
 
 		/**
