@@ -10,6 +10,9 @@
 
 .wp-block-font-awesome-font-awesome ul.icons li {
     padding: 0.25em;
-    color: rgb(73, 80, 87);
+    color: #e2e4e7;
 }
 
+.wp-block-font-awesome-font-awesome ul.icons li.selected {
+    color: rgb(73, 80, 87);
+}

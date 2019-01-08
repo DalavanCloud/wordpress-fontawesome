@@ -111,8 +111,8 @@
               <ul className={'icons'}>
                 {
                   icons.map((icon, index) =>
-                    <li onClick={() => handleSelect(icon)} key={index}>
-                      <i className={`${ defaultPrefix } fa-${ icon }`}></i>
+                    <li onClick={() => handleSelect(icon)} key={index} className={`${ attributes.icon === icon ? 'selected' : '' }`}>
+                      <i className={`${ defaultPrefix } fa-${ icon } `}></i>
                     </li>
                   )
                 }
