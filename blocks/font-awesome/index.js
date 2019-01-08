@@ -77,6 +77,21 @@
 		 */
 		edit: function( props ) {
 
+		  var icons = [
+		    'fa-coffee',
+        'fa-star',
+        'fa-angry',
+        'fa-bath',
+        'fa-bell',
+        'fa-bowling-ball',
+        'fa-broom',
+        'fa-brain',
+        'fa-chair',
+        'fa-clock',
+        'fa-exclamation',
+        'fa-eye-dropper'
+      ]
+
 			return el(
 				'select',
 				{
