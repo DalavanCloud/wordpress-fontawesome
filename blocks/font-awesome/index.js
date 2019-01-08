@@ -3,17 +3,17 @@
 	 * Registers a new block provided a unique name and an object defining its behavior.
 	 * @see https://github.com/WordPress/gutenberg/tree/master/blocks#api
 	 */
-	var registerBlockType = wp.blocks.registerBlockType;
+	const registerBlockType = wp.blocks.registerBlockType
 	/**
 	 * Returns a new element of given type. Element is an abstraction layer atop React.
 	 * @see https://github.com/WordPress/gutenberg/tree/master/element#element
 	 */
-	var el = wp.element.createElement;
+	const el = wp.element.createElement
 	/**
 	 * Retrieves the translation of text.
 	 * @see https://github.com/WordPress/gutenberg/tree/master/i18n#api
 	 */
-	var __ = wp.i18n.__;
+	const __ = wp.i18n.__
 
 	/**
 	 * Every block starts by registering a new block type definition.
@@ -75,7 +75,7 @@
 		 * @param {Object} [props] Properties passed from the editor.
 		 * @return {Element}       Element to render.
 		 */
-		edit: function( { className, setAttributes } ) {
+		edit: ( { className, setAttributes } ) => {
 
       const handleSelect = (e, iconClass) => {
         setAttributes({
@@ -115,10 +115,10 @@
 		 *
 		 * @return {Element}       Element to render.
 		 */
-		save: function(props) {
+		save: (props) => {
       return <i className={`fas ${props.attributes.class}`}></i>
 		}
-	});
+	})
 } )(
 	window.wp
-);
+)
