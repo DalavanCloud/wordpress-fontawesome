@@ -47,6 +47,7 @@ fi
 echo "Adding WordPress debug configuration...\c"
 $DIR/set-wp-config -c ${WP_CONTAINER} WP_DEBUG true
 $DIR/set-wp-config -c ${WP_CONTAINER} WP_DEBUG_LOG true
+$DIR/set-wp-config -c ${WP_CONTAINER} SCRIPT_DEBUG true
 $DIR/set-wp-config -c ${WP_CONTAINER} WP_DEBUG_DISPLAY true
 
 if [ "$?" == "0" ]; then
