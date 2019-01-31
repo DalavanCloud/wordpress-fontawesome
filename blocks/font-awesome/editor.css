@@ -4,15 +4,15 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-font-awesome-font-awesome ul.icons {
+.font-awesome-icon-chooser ul.icons {
     list-style-type: none;
 }
 
-.wp-block-font-awesome-font-awesome ul.icons li {
+.font-awesome-icon-chooser ul.icons li {
     padding: 0.25em;
     color: #e2e4e7;
 }
 
-.wp-block-font-awesome-font-awesome ul.icons li.selected {
+.font-awesome-icon-chooser ul.icons li.selected {
     color: rgb(73, 80, 87);
 }
